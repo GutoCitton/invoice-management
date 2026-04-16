@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>📄 Emissão de Notas Fiscais</h1>
+
+  <div class="card">
+    <input type="file" (change)="onFileChange($event)" />
+
+    <button (click)="enviar()" [disabled]="loading || !file">
+      {{ loading ? 'Enviando...' : 'Enviar Planilha' }}
+    </button>
+  </div>
+
+  <!-- progresso -->
+  <div *ngIf="loading || total" class="progress-card">
+    <p>Processando: {{ processados }} de {{ total }}</p>
+
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="progresso"></div>
+    </div>
+
+    <p>{{ progresso }}%</p>
+  </div>
+
+  <!-- resultados -->
+  <div *ngIf="resultado.length" class="results">
+    <h2>Resultado</h2>
+
+    <div *ngFor="let item of resultado" class="result-card">
+
+      <div class="status">
+        <span [class.success]="item.status === 'sucesso'" [class.error]="item.status === 'erro'">
+          {{ item.status }}
+        </span>
+      </div>
+
+      <div *ngIf="item.response">
+        <p><strong>Cliente:</strong> {{ item.response?.borrower?.name }}</p>
+        <p><strong>Documento:</strong> {{ item.response?.borrower?.federalTaxNumber }}</p>
+        <p>
+          <strong>Valor:</strong>
+          {{
+    (item.response?.service?.amount || item.response?.servicesAmount)
+      | currency:'BRL':'symbol':'1.2-2'
+  }}
+        </p>
+        <p><strong>Status NF:</strong> {{ item.response?.status }}</p>
+      </div>
+
+      <div *ngIf="item.erro" class="erro">
+        {{ item.erro }}
+      </div>
+
+    </div>
+  </div>
+</div>
