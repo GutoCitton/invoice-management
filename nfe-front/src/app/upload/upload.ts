@@ -42,9 +42,11 @@ export class UploadComponent {
     formData.append('file', this.file);
 
     try {
+      console.log("chegou aqui");
       const res = await firstValueFrom(
         this.http.post<any[]>('http://localhost:3000/upload', formData)
       );
+       console.log("chegou aqui tbm");
 
       this.resultado = res;
 

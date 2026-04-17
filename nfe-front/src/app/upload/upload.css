@@ -1,12 +1,21 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f5f6fa;
+  background: #d4edda;
 }
 
 .container {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
+  background-color: #00366b;
+  border-radius: 20px;
+  color: #ddd;
+}
+
+
+.container h2 {
+  margin: 50px;
+  color: white;
 }
 
 h1 {
@@ -23,20 +32,23 @@ h1 {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  background-color: #38B6FF;
 }
 
 button {
   background: #4CAF50;
-  color: white;
+  color: #e8e8e8;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.2s;
+  font-weight: bold;
 }
 
 button:hover {
   background: #45a049;
+  color: white;
 }
 
 button:disabled {
@@ -49,6 +61,7 @@ button:disabled {
   padding: 20px;
   margin-top: 20px;
   border-radius: 10px;
+  color: black;
 }
 
 .progress-bar {
@@ -63,19 +76,23 @@ button:disabled {
 .progress-fill {
   height: 100%;
   background: #4CAF50;
-  transition: width 0.3s;
+  transition: width 0.5s;
 }
 
 .results {
   margin-top: 30px;
+  color: black;
+  margin: 50px;
 }
 
 .result-card {
   background: white;
   padding: 15px;
   border-radius: 10px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: #000000 solid 2px;
+  margin-bottom: 30px;
+  box-shadow: 6px 8px 0px #000000;
+  
 }
 
 .status span {

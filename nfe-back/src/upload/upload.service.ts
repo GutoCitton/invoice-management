@@ -30,6 +30,7 @@ export class UploadService {
         });
       }
     }
+    console.log('RESULTADOS BACK:', resultados);
 
     return resultados;
   }
